@@ -1,0 +1,609 @@
+:root {
+  color-scheme: dark;
+  --bg: #0c100c;
+  --panel: #141a14;
+  --grid: #101710;
+  --line: #2a382c;
+  --text: #e7f0e4;
+  --muted: #93a394;
+  --accent: #39ff14;
+  --ink: #042000;
+  --born: #4db8ff;
+  --live: #39ff14;
+  --blood: #2e0008;
+  --danger: #ffb4a8;
+  --shadow: rgba(0, 0, 0, 0.28);
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+button, input, select { font: inherit; color: inherit; }
+
+button { cursor: pointer; }
+
+::selection { background: rgba(57, 255, 20, 0.28); }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(12, 16, 12, 0.92);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+.logo {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  color: var(--accent);
+  background: var(--grid);
+  border: 1px solid rgba(57, 255, 20, 0.28);
+  border-radius: 10px;
+  padding: 6px;
+}
+
+.logo rect { fill: currentColor; }
+
+h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+}
+
+.brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+
+.run-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5c6b5d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+body.is-running .run-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.hud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 16px;
+}
+
+.hud div { display: flex; flex-direction: column; align-items: flex-end; min-width: 64px; }
+
+.hud span {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.hud strong {
+  font-family: Consolas, "Cascadia Mono", "Cascadia Code", monospace;
+  font-size: 16px;
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  min-width: 4.5ch;
+  text-align: right;
+}
+
+.hud .title-block {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.hud .title-name {
+  font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-align: left;
+  min-width: 0;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  min-height: 0;
+  background:
+    radial-gradient(1200px 500px at 50% 40%, rgba(57, 255, 20, 0.05), transparent 60%),
+    var(--bg);
+}
+
+body.is-settings canvas { opacity: 0.34; }
+
+.hud {
+  position: absolute;
+  z-index: 6;
+  top: 12px;
+  left: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px 16px;
+  max-width: calc(100% - 120px);
+  padding: 8px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(57, 255, 20, 0.16);
+  background: rgba(12, 16, 12, 0.78);
+}
+
+.settings-toggle {
+  position: absolute;
+  z-index: 6;
+  top: 12px;
+  right: 14px;
+  min-width: 72px;
+}
+
+.settings-toggle.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.dock {
+  position: absolute;
+  z-index: 6;
+  right: 14px;
+  bottom: 14px;
+  width: min(320px, calc(100% - 28px));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(57, 255, 20, 0.16);
+  background: rgba(12, 16, 12, 0.82);
+}
+
+.dock-speed { gap: 4px; }
+
+.settings {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  overflow: auto;
+  padding: 72px 18px 120px;
+  background: rgba(8, 12, 8, 0.18);
+}
+
+.settings[hidden] { display: none; }
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.settings section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(20, 26, 20, 0.94);
+  box-shadow: 0 16px 40px var(--shadow);
+}
+
+.settings h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: 0.14em;
+}
+
+.axis-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.edge-options { display: flex; flex-direction: column; gap: 6px; }
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.check input { width: auto; accent-color: var(--accent); }
+
+.preset-row.pattern-row { grid-template-columns: minmax(0, 1fr) auto auto; }
+
+.stage canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.corner-left {
+  position: absolute;
+  z-index: 6;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.home-btn {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 0;
+  background: #f4f6f1;
+  color: #243028;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.home-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin: 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-btn:hover { background: #ffffff; }
+
+.legend {
+  position: static;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(57, 255, 20, 0.16);
+  background: rgba(12, 16, 12, 0.78);
+  color: var(--muted);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.swatch.born { background: var(--born); }
+.swatch.live { background: var(--live); }
+.swatch.dying { background: linear-gradient(90deg, var(--live), var(--blood)); }
+
+.panel {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  scrollbar-color: #314232 transparent;
+}
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+.field > span, .label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.note, .describe, details {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.note, details { color: var(--muted); font-size: 12px; }
+
+.describe { color: #d7e6d6; }
+
+details summary { cursor: pointer; color: var(--text); }
+
+details p { margin: 8px 0 0; }
+
+.preset-row, .rule-row {
+  display: grid;
+  gap: 8px;
+  align-items: center;
+}
+
+.preset-row { grid-template-columns: minmax(0, 1fr) auto auto auto; }
+.rule-row { grid-template-columns: minmax(0, 1fr) auto auto; }
+
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  background: #0d130e;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  outline: none;
+}
+
+input[type="text"] {
+  font-family: Consolas, "Cascadia Mono", "Cascadia Code", monospace;
+  letter-spacing: 0.04em;
+}
+
+input.invalid { border-color: var(--danger); }
+
+.err { color: var(--danger); font-size: 12px; margin: 0; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.chip, button {
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #0d130e;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.chip {
+  width: 30px;
+  height: 32px;
+  padding: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.chip.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.chip:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+button { padding: 8px 10px; min-height: 36px; }
+
+button:hover, .chip:hover:not(:disabled) { border-color: #58704a; }
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+button.primary.is-on {
+  background: #243018;
+  color: var(--accent);
+}
+
+button.danger {
+  color: var(--danger);
+  border-color: #6a4038;
+}
+
+button.wide { width: 100%; }
+
+button:focus-visible, .chip:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn-row { display: grid; grid-template-columns: 1.25fr 0.8fr 0.8fr; gap: 8px; }
+.btn-row.pair { grid-template-columns: 1.4fr 0.8fr; }
+.btn-row.even { grid-template-columns: 1fr 1fr 1fr; }
+
+.seg {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #0d130e;
+}
+
+.seg button {
+  flex: 1;
+  border-color: transparent;
+  background: transparent;
+  color: var(--muted);
+  min-height: 34px;
+}
+
+.seg button.on {
+  background: #243218;
+  color: var(--accent);
+  border-color: transparent;
+}
+
+.seg.wrap { flex-wrap: wrap; }
+
+.seg.wrap button {
+  flex: 1 1 calc(50% - 4px);
+  font-size: 13px;
+}
+
+#neighSeg { flex-wrap: nowrap; }
+#neighSeg button { min-width: 0; padding: 8px 4px; font-size: 13px; }
+
+.neigh-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 36px);
+  gap: 6px;
+  width: max-content;
+}
+
+.neigh-cell, .neigh-self {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.neigh-cell {
+  padding: 0;
+  background: #0d130e;
+}
+
+.neigh-cell.on {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.neigh-self {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  background: transparent;
+}
+
+/* 六边形网格视图：六角邻域的另一种画法，和上面的九宫格说的是同一件事。 */
+.hex-view {
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.hex-view.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.hex-view.is-disabled input { cursor: not-allowed; }
+
+.neigh-grid.hex-mode {
+  display: block;
+  width: max-content;
+}
+
+.neigh-hex { display: block; }
+
+.hex-cell polygon {
+  fill: #0d130e;
+  stroke: var(--line);
+  stroke-width: 2;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+/* 点亮的六角形用深色勾边，相邻两个才看得出是两格而不是一团。 */
+.hex-cell.on polygon {
+  fill: var(--accent);
+  stroke: #0d130e;
+}
+
+.hex-self polygon {
+  fill: transparent;
+  stroke: var(--line);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+}
+
+.hex-cell text,
+.hex-self text {
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--muted);
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hex-cell.on text { fill: var(--ink); }
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.size-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 8px;
+  align-items: end;
+}
+
+dialog {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 18px;
+  width: min(360px, calc(100vw - 32px));
+  box-shadow: 0 16px 48px var(--shadow);
+}
+
+dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+
+dialog h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
+dialog .field { margin-top: 12px; }
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+footer {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button, .chip { transition: none; }
+}
+
+@media (max-width: 720px) {
+  .settings-grid { grid-template-columns: 1fr; }
+  .hud { max-width: calc(100% - 110px); }
+  .legend { display: none; }
+}

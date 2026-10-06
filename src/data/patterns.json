@@ -1,0 +1,596 @@
+[
+  {
+    "id": "block",
+    "name": "Block",
+    "align": "center",
+    "rows": [
+      "OO",
+      "OO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "blinker",
+    "name": "Blinker",
+    "align": "center",
+    "rows": [
+      "OOO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "toad",
+    "name": "Toad",
+    "align": "center",
+    "rows": [
+      ".OOO",
+      "OOO."
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "beacon",
+    "name": "Beacon",
+    "align": "center",
+    "rows": [
+      "OO..",
+      "OO..",
+      "..OO",
+      "..OO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "glider",
+    "name": "Glider",
+    "align": "center",
+    "rows": [
+      ".O.",
+      "..O",
+      "OOO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "lwss",
+    "name": "Lightweight spaceship",
+    "align": "center",
+    "rows": [
+      "O..O.",
+      "....O",
+      "O...O",
+      ".OOOO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "pulsar",
+    "name": "Pulsar",
+    "align": "center",
+    "rows": [
+      "..OOO...OOO..",
+      ".............",
+      "O....O.O....O",
+      "O....O.O....O",
+      "O....O.O....O",
+      "..OOO...OOO..",
+      ".............",
+      "..OOO...OOO..",
+      "O....O.O....O",
+      "O....O.O....O",
+      "O....O.O....O",
+      ".............",
+      "..OOO...OOO.."
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "rpent",
+    "name": "R-pentomino",
+    "align": "center",
+    "rows": [
+      ".OO",
+      "OO.",
+      ".O."
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "acorn",
+    "name": "Acorn",
+    "align": "center",
+    "rows": [
+      ".O.....",
+      "...O...",
+      "OO..OOO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "gun",
+    "name": "Gosper glider gun",
+    "align": "center",
+    "rows": [
+      "........................O",
+      "......................O.O",
+      "............OO......OO............OO",
+      "...........O...O....OO............OO",
+      "OO........O.....O...OO",
+      "OO........O...O.OO....O.O",
+      "..........O.....O.......O",
+      "...........O...O",
+      "............OO"
+    ],
+    "rule": "B3/S23/C2/N12345678"
+  },
+  {
+    "id": "bunnies",
+    "name": "Bunnies",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/bunnies.rle",
+    "rows": [
+      "O.....O",
+      "..O...O",
+      "..O..O.O",
+      ".O.O"
+    ]
+  },
+  {
+    "id": "copperhead",
+    "name": "Copperhead",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/copperhead.rle",
+    "rows": [
+      ".OO..OO",
+      "...OO",
+      "...OO",
+      "O.O..O.O",
+      "O......O",
+      "",
+      "O......O",
+      ".OO..OO",
+      "..OOOO",
+      "",
+      "...OO",
+      "...OO"
+    ]
+  },
+  {
+    "id": "loafer",
+    "name": "Loafer",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/loafer.rle",
+    "rows": [
+      ".OO..O.OO",
+      "O..O..OO",
+      ".O.O",
+      "..O",
+      "........O",
+      "......OOO",
+      ".....O",
+      "......O",
+      ".......OO"
+    ]
+  },
+  {
+    "id": "pentadecathlon",
+    "name": "Pentadecathlon",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/pentadecathlon.rle",
+    "rows": [
+      "..O....O",
+      "OO.OOOO.OO",
+      "..O....O"
+    ]
+  },
+  {
+    "id": "pi",
+    "name": "Pi heptomino",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/piheptomino.rle",
+    "rows": [
+      "OOO",
+      "O.O",
+      "O.O"
+    ]
+  },
+  {
+    "id": "switch-engine",
+    "name": "Switch engine",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/switchengine.rle",
+    "rows": [
+      ".O.O",
+      "O",
+      ".O..O",
+      "...OOO"
+    ]
+  },
+  {
+    "id": "herschel",
+    "name": "Herschel",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/herschel.rle",
+    "rows": [
+      "O",
+      "OOO",
+      "O.O",
+      "..O"
+    ]
+  },
+  {
+    "id": "diehard",
+    "name": "Diehard",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/diehard.rle",
+    "rows": [
+      "......O",
+      "OO",
+      ".O...OOO"
+    ]
+  },
+  {
+    "id": "queenbee",
+    "name": "Queen bee",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/queenbee.rle",
+    "rows": [
+      "O",
+      "O.O",
+      ".O.O",
+      ".O..O",
+      ".O.O",
+      "O.O",
+      "O"
+    ]
+  },
+  {
+    "id": "life-spiral",
+    "name": "Spiral",
+    "align": "center",
+    "rule": "B3/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/spiral.rle",
+    "rows": [
+      "OO....O",
+      ".O..OOO",
+      ".O.O",
+      "..O.O",
+      "...O.O",
+      "OOO..O",
+      "O....OO"
+    ]
+  },
+  {
+    "id": "hl-replicator",
+    "name": "Replicator",
+    "align": "center",
+    "rule": "B36/S23/C2/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Life/HighLife/replicator.l",
+    "rows": [
+      "..OOO",
+      ".O..O",
+      "O...O",
+      "O..O",
+      "OOO"
+    ]
+  },
+  {
+    "id": "hl-bomber",
+    "name": "Bomber",
+    "align": "center",
+    "rule": "B36/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/highlife_bomber.rle",
+    "rows": [
+      ".O",
+      ".O",
+      ".O",
+      "",
+      "",
+      "...O",
+      "..OO",
+      ".O.O",
+      "OOO",
+      "",
+      "......OOO",
+      ".....O.O",
+      ".....OO",
+      ".....O"
+    ]
+  },
+  {
+    "id": "hl-p7",
+    "name": "Period 7",
+    "align": "center",
+    "rule": "B36/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/highlife_p7.rle",
+    "rows": [
+      "OOO",
+      "OOO",
+      "....OOO",
+      "....OOO"
+    ]
+  },
+  {
+    "id": "hl-p10",
+    "name": "Period 10",
+    "align": "center",
+    "rule": "B36/S23/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/highlife_p10.rle",
+    "rows": [
+      "OOO",
+      "..O",
+      "",
+      "O.O",
+      ".OO"
+    ]
+  },
+  {
+    "id": "dn-rocket",
+    "name": "Rocket",
+    "align": "center",
+    "rule": "B3678/S34678/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/daynight_rocket.rle",
+    "rows": [
+      ".......OO",
+      "........O",
+      "....O...O...OO",
+      "...OO.OOOOOOOO.........OO",
+      "..OOOOOOOOOOO.O...OO.OOOOOO.............OO",
+      ".OOOOOOOOOOOOO..OOOOOOOOOOO.......O....OOO",
+      "OOOOOOOOOOOOOOOOOOOOOOOOOO..........OOOOO.O",
+      ".OOOOOOOOOOOOO..OOOOOOOOOOO.......O....OOO",
+      "..OOOOOOOOOOO.O...OO.OOOOOO.............OO",
+      "...OO.OOOOOOOO.........OO",
+      "....O...O...OO",
+      "........O",
+      ".......OO"
+    ]
+  },
+  {
+    "id": "twobytwo-crawler",
+    "name": "Crawler",
+    "align": "center",
+    "rule": "B36/S125/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/2x2_crawler.rle",
+    "rows": [
+      ".O",
+      "OOO",
+      "..OO",
+      "..O",
+      ".O"
+    ]
+  },
+  {
+    "id": "life34-glider",
+    "name": "Glider",
+    "align": "center",
+    "rule": "B34/S34/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/34life_glider.rle",
+    "rows": [
+      ".OO",
+      "OOOO"
+    ]
+  },
+  {
+    "id": "seeds-moon",
+    "name": "Moon",
+    "align": "center",
+    "rule": "B2/S/C2/N12345678",
+    "source": "https://github.com/masaki-wk/life-backend/blob/master/patterns/seeds_moon.rle",
+    "rows": [
+      ".O",
+      "O",
+      "O",
+      ".O"
+    ]
+  },
+  {
+    "id": "replicator-seed",
+    "name": "Replicator",
+    "align": "center",
+    "rule": "B1357/S1357/C2/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Life/Replicator/Replicator.lif",
+    "rows": [
+      "...OOOOOOOOOOOOOOO",
+      "...O.............O",
+      "...O.............O",
+      ".OOO.............OOO",
+      "O..O..OO.....OO..O..O",
+      "OO.O.O..O...O..O.O.OO",
+      ".OOO..OO.....OO..OOO",
+      "..OO.............OO",
+      "...O.............O",
+      "...O.............O",
+      "...O...O.....O...O",
+      "...O...OO...OO...O",
+      "...O....OOOOO....O",
+      "...O.............O",
+      "...O.............O",
+      "...O.............O",
+      "...OOOOOOOOOOOOOOO"
+    ]
+  },
+  {
+    "id": "fredkin-diakonov",
+    "name": "Diakonov's replicator",
+    "align": "center",
+    "rule": "B1357/S02468/C2/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Life/Other/Diakonov%20s%20replicator.lif",
+    "rows": [
+      "...OOOOOOOOOOOOOOO",
+      "...O.............O",
+      "...O.............O",
+      ".OOO.............OOO",
+      "O..O..OO.....OO..O..O",
+      "OO.O.O..O...O..O.O.OO",
+      ".OOO..OO.....OO..OOO",
+      "..OO.............OO",
+      "...O.............O",
+      "...O.............O",
+      "...O...O.....O...O",
+      "...O...OO...OO...O",
+      "...O....OOOOO....O",
+      "...O.............O",
+      "...O.............O",
+      "...O.............O",
+      "...OOOOOOOOOOOOOOO"
+    ]
+  },
+  {
+    "id": "morley-ships",
+    "name": "Ship",
+    "align": "center",
+    "rule": "B368/S245/C2/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Life/Move/Move.lif",
+    "rows": [
+      "..OO",
+      ".OOO",
+      ".OOO",
+      "..OO"
+    ]
+  },
+  {
+    "id": "bb-speedy",
+    "name": "Speedy",
+    "align": "center",
+    "rule": "B2/S/C3/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Generations/Brian%27s%20Brain/Speedy.mcl",
+    "rows": [
+      "...............B",
+      ".............B.B.B",
+      "............A..A..A",
+      "............BA.B.ABA...BA..BA",
+      "B.........ABB.....B..BA.BA.BA",
+      "....B......B....A.B.A..AA.BA",
+      "..BA..A.........BB.BA..AB",
+      ".....BB........AB....B..BA",
+      "....A..........A.A..AA..AA",
+      ".....BB........AB....B..BA",
+      "..BA..A.........BB.BA..AB",
+      "....B......B....A.B.A..AA.BA",
+      "B.........ABB.....B..BA.BA.BA",
+      "............BA.B.ABA...BA..BA",
+      "............A..A..A",
+      ".............B.B.B",
+      "...............B"
+    ]
+  },
+  {
+    "id": "bb-p3",
+    "name": "Small oscillator",
+    "align": "center",
+    "rule": "B2/S/C3/N12345678",
+    "source": "https://conwaylife.com/wiki/OCA:Brian%27s_Brain",
+    "rows": [
+      "..A",
+      "ABB",
+      ".BBA",
+      ".A"
+    ]
+  },
+  {
+    "id": "bb-pair",
+    "name": "Double photon",
+    "align": "center",
+    "rule": "B2/S/C3/N12345678",
+    "source": "https://conwaylife.com/wiki/OCA:Brian%27s_Brain",
+    "rows": [
+      "A..A",
+      "A..A"
+    ]
+  },
+  {
+    "id": "frogs-pair",
+    "name": "Two frogs",
+    "align": "center",
+    "rule": "B34/S12/C3/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Generations/Frogs/Frogs.mcl",
+    "rows": [
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A"
+    ]
+  },
+  {
+    "id": "starwars-tiny",
+    "name": "Tiny",
+    "align": "center",
+    "rule": "B2/S345/C4/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Generations/StarWars/Tiny.mcl",
+    "rows": [
+      "ABC",
+      "ABC",
+      ".ABC",
+      ".ABC"
+    ]
+  },
+  {
+    "id": "spirals-single",
+    "name": "Single spiral",
+    "align": "center",
+    "rule": "B234/S2/C5/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Generations/Spirals/Single%20spiral.mcl",
+    "rows": [
+      ".................AA",
+      "................ABBA",
+      "...............ABBBBA",
+      "..............ABBDDBBA",
+      ".............ABBDDDDBBA",
+      "............ABBDD..DDBBA",
+      "...........ABBDD....DDBBA",
+      "..........ABBDD......DDBBA",
+      ".........ABBDD........DDBBA",
+      "........ABBDD..........DDBBA",
+      ".......ABBDD............DDBBA",
+      "......ABBDD..............DDBBA",
+      ".....ABBDD.......AA.......DDBBA",
+      "....ABBDD.......ABBA.......DDBBA",
+      "...ABBDD.......ABCBBA.......DDBBA",
+      "..ABCD........ABBDBBA.......DDBBA",
+      "ABCD.........ABBDD.A.......DDBBA",
+      "ABCD........ABBDD.........DDBBA",
+      "............ABBDD........DDBBA",
+      ".............ABBDD......DDBBA",
+      "..............ABBDD....DDBBA",
+      "...............ABBDD..DDBBA",
+      "................ABBDDDDBBA",
+      ".................ABBDDBBA",
+      "..................ABBBBA",
+      "...................ABBA",
+      "....................AA"
+    ]
+  },
+  {
+    "id": "orthogo-seed",
+    "name": "Collider seed",
+    "align": "center",
+    "rule": "B2/S3/C4/N12345678",
+    "source": "https://github.com/MiDevel/mcell-webapp/blob/main/data/patterns/Generations/OrthoGo/OrthoGo.mcl",
+    "rows": [
+      "A",
+      "A"
+    ]
+  }
+]

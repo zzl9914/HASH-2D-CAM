@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c100c">
+  <title>HASH 2D-CAM</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="stage" id="stage">
+    <canvas id="board" aria-label="元胞自动机棋盘。左键绘制，右键擦除。"></canvas>
+    <div class="hud">
+      <div class="title-block">
+        <span class="run-dot" aria-hidden="true"></span>
+        <strong class="title-name">HASH 2D-CAM</strong>
+      </div>
+      <div><span>代数</span><strong id="gen">0</strong></div>
+      <div><span>存活</span><strong id="pop">0</strong></div>
+      <div><span>规则</span><strong id="ruleName">生命游戏</strong></div>
+      <div><span>指针</span><strong id="hover">–</strong></div>
+    </div>
+    <button id="settingsToggle" class="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">设置</button>
+    <div class="corner-left">
+      <button id="fit" class="home-btn" type="button" title="适配画面（F）" aria-label="适配画面">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4.5 11.2 12 4.8l7.5 6.4"></path>
+          <path d="M7.2 10.4V19h9.6v-8.6"></path>
+          <path d="M10.2 19v-4.2h3.6V19"></path>
+        </svg>
+      </button>
+      <div class="legend">
+        <span><i class="swatch born"></i>这一代新诞生</span>
+        <span><i class="swatch live"></i>延续存活</span>
+        <span id="dyingLegend" hidden><i class="swatch dying"></i>衰老</span>
+      </div>
+    </div>
+    <div class="dock">
+      <div class="field dock-speed">
+        <span>速度 <output id="speedOut">12</output> 代/秒</span>
+        <input id="speed" type="range" min="0" max="1000" step="1" value="0" aria-label="速度">
+      </div>
+      <div class="btn-row pair">
+        <button id="play" class="primary" type="button" aria-pressed="false" title="空格">运行</button>
+        <button id="step" type="button" title="N">单步</button>
+      </div>
+    </div>
+
+    <div id="settings" class="settings" hidden>
+      <div class="settings-grid">
+        <section aria-labelledby="ruleHeading">
+          <h2 id="ruleHeading">规则</h2>
+          <div class="field">
+            <span>规则字符串</span>
+            <div class="rule-row">
+              <input id="ruleInput" type="text" maxlength="48" spellcheck="false" autocomplete="off" aria-label="规则字符串" value="B3/S23/C2/N12345678">
+              <button id="applyRule" type="button">应用</button>
+              <button id="copyRule" type="button">复制</button>
+            </div>
+            <p id="ruleError" class="err" hidden></p>
+          </div>
+          <div class="field">
+            <span>预设</span>
+            <div class="preset-row">
+              <select id="presetSelect" aria-label="规则预设"></select>
+              <button id="saveRule" type="button">保存</button>
+              <button id="deleteRule" type="button" hidden>删除</button>
+              <button id="randomRule" type="button">随机规则</button>
+            </div>
+            <p id="presetNote" class="note"></p>
+          </div>
+          <p id="describe" class="describe"></p>
+          <div class="field">
+            <span id="birthLabel">诞生（B）</span>
+            <div class="chips" id="birthChips" role="group" aria-labelledby="birthLabel"></div>
+          </div>
+          <div class="field">
+            <span id="survivalLabel">存活（S）</span>
+            <div class="chips" id="survivalChips" role="group" aria-labelledby="survivalLabel"></div>
+          </div>
+          <div class="field">
+            <span id="statesLabel">循环（C）</span>
+            <input id="states" type="number" min="2" max="256" value="2" inputmode="numeric" aria-labelledby="statesLabel">
+          </div>
+          <div class="field">
+            <span id="neighLabel">邻域（N）</span>
+            <div class="seg" id="neighSeg" role="group" aria-label="邻域预设">
+              <button type="button" data-value="vonneumann" aria-pressed="false">冯·诺依曼（4）</button>
+              <button type="button" data-value="hex" aria-pressed="false">六角（6）</button>
+              <button type="button" data-value="moore" class="on" aria-pressed="true">摩尔（8）</button>
+            </div>
+            <label class="check hex-view" id="hexViewWrap">
+              <input id="hexView" type="checkbox">
+              <span>用六边形网格显示</span>
+            </label>
+            <div class="neigh-grid" id="neighGrid" role="group" aria-labelledby="neighLabel"></div>
+            <p id="neighNote" class="note"></p>
+          </div>
+          <details>
+            <summary>这种规则能自定义到什么程度</summary>
+            <p>规则写成 B3/S23/C2/N12345678。B 是诞生，S 是存活，C 是循环代数。N 用 1 到 8 表示 3×3 里哪些格子算邻居，从左到右、从上到下数，摩尔邻域是 N12345678。不写 N 时按摩尔邻域。界面上的 N 就是当前点亮的格子，点灯不会自己转。保存到名单时，才在旋转和左右翻转的 8 种里收成字典序最小的写法，例如存 N123458 时名单里记的是 N123456。C 为 2 时只有死和活。C 更大时，活细胞不能存活会先衰老，每一代状态加一，走完后回到死。只有活细胞计入邻居。</p>
+          </details>
+        </section>
+
+        <section aria-labelledby="edgeHeading">
+          <h2 id="edgeHeading">边界</h2>
+          <div class="axis-row">
+            <div class="field">
+              <span>宽</span>
+              <input id="cols" type="number" min="8" max="4096" value="140" inputmode="numeric" aria-label="宽">
+              <div class="edge-options">
+                <label class="check"><input id="xFlip" type="checkbox">翻转</label>
+                <select id="xMode" aria-label="宽的衔接">
+                  <option value="mirror">镜面</option>
+                  <option value="open">开放</option>
+                  <option value="cycle" selected>循环</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <span>高</span>
+              <input id="rows" type="number" min="8" max="4096" value="90" inputmode="numeric" aria-label="高">
+              <div class="edge-options">
+                <label class="check"><input id="yFlip" type="checkbox">翻转</label>
+                <select id="yMode" aria-label="高的衔接">
+                  <option value="mirror">镜面</option>
+                  <option value="open">开放</option>
+                  <option value="cycle" selected>循环</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <button id="applySize" type="button">应用宽高</button>
+          <p class="note">翻转可以和下面的衔接方式同时用。镜面是走到边上折返，开放是边界外一圈都算 0，循环是连到对面。勾了翻转时，另一个方向会颠倒。</p>
+        </section>
+
+        <section aria-labelledby="patternHeading">
+          <h2 id="patternHeading">图案</h2>
+          <div class="field">
+            <span>当前规则的图案</span>
+            <div class="preset-row pattern-row">
+              <select id="patternSelect" aria-label="放入图案"></select>
+              <button id="savePattern" type="button">保存</button>
+              <button id="deletePattern" type="button" hidden>删除</button>
+            </div>
+            <p id="patternNote" class="note"></p>
+            <p id="patternError" class="err" hidden></p>
+          </div>
+          <div class="field">
+            <span>随机密度 <output id="densityOut">22</output>%</span>
+            <input id="density" type="range" min="1" max="100" value="22" aria-label="随机密度">
+          </div>
+          <div class="btn-row even">
+            <button id="clear" type="button">清空</button>
+            <button id="random" type="button">随机填充</button>
+            <button id="invert" type="button">反相</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="saveDialog">
+    <form id="saveForm">
+      <h2 id="saveDialogTitle">保存规则</h2>
+      <p id="saveDialogRule" class="note"></p>
+      <p id="saveDialogHint" class="note">同一套规则再保存不会多出一条，只会留下这次写的名字。</p>
+      <label class="field">名字
+        <input id="saveName" type="text" maxlength="32" autocomplete="off" placeholder="起个名字">
+      </label>
+      <p id="saveError" class="err" hidden></p>
+      <div class="dialog-actions">
+        <button id="saveCancel" type="button">取消</button>
+        <button id="saveConfirm" class="primary" type="submit">保存</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="deleteDialog">
+    <form id="deleteForm">
+      <h2 id="deleteDialogTitle">删除规则</h2>
+      <p id="deleteDialogText"></p>
+      <div class="dialog-actions">
+        <button id="deleteCancel" type="button">取消</button>
+        <button id="deleteConfirm" class="danger" type="submit">删除</button>
+      </div>
+    </form>
+  </dialog>
+  <noscript>需要启用 JavaScript 才能运行这个元胞自动机。</noscript>
+  <script src="js/kernel_wasm.js"></script>
+  <script src="js/ca.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

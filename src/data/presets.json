@@ -1,0 +1,631 @@
+[
+  {
+    "id": "life",
+    "group": "life",
+    "name": "Conway's Life",
+    "birth": "3",
+    "survival": "23",
+    "note": "最经典的一套。滑翔机会平移，脉冲星会闪，滑翔机枪会不停发射。"
+  },
+  {
+    "id": "highlife",
+    "group": "life",
+    "name": "HighLife",
+    "birth": "36",
+    "survival": "23",
+    "note": "在生命游戏之外，多了「6 个活邻居也会诞生」。有些图案会复制自己。"
+  },
+  {
+    "id": "daynight",
+    "group": "life",
+    "name": "Day & Night",
+    "birth": "3678",
+    "survival": "34678",
+    "note": "把活和死对调，规则仍然成立。可以按「反相」对照着看。"
+  },
+  {
+    "id": "seeds",
+    "group": "life",
+    "name": "Seeds",
+    "birth": "2",
+    "survival": "",
+    "note": "活细胞下一刻一律死去，只有恰好 2 个活邻居的死细胞会诞生。"
+  },
+  {
+    "id": "serviettes",
+    "group": "life",
+    "name": "Serviettes",
+    "birth": "234",
+    "survival": "",
+    "note": "活细胞同样每代都死，铺开后像织物。"
+  },
+  {
+    "id": "maze",
+    "group": "life",
+    "name": "Maze",
+    "birth": "3",
+    "survival": "12345",
+    "note": "随机分布会慢慢收成迷宫一样的通道。"
+  },
+  {
+    "id": "mazectric",
+    "group": "life",
+    "name": "Mazectric",
+    "birth": "3",
+    "survival": "1234",
+    "note": "迷宫的变体，通道更长，更偏直线。"
+  },
+  {
+    "id": "coral",
+    "group": "life",
+    "name": "Coral",
+    "birth": "3",
+    "survival": "45678",
+    "note": "活下来就不容易死，边缘会像珊瑚一样向外长。"
+  },
+  {
+    "id": "diamoeba",
+    "group": "life",
+    "name": "Diamoeba",
+    "birth": "35678",
+    "survival": "5678",
+    "note": "倾向长成钻石形的大块，边缘一直在抖。"
+  },
+  {
+    "id": "amoeba",
+    "group": "life",
+    "name": "Amoeba",
+    "birth": "357",
+    "survival": "1358",
+    "note": "会长出大片不规则的变形虫状区域，边缘比内部更活跃。"
+  },
+  {
+    "id": "assimilation",
+    "group": "life",
+    "name": "Assimilation",
+    "birth": "345",
+    "survival": "4567",
+    "note": "和 Diamoeba 接近，但钻石块更稳，填满后不容易散。"
+  },
+  {
+    "id": "twobytwo",
+    "group": "life",
+    "name": "2×2",
+    "birth": "36",
+    "survival": "125",
+    "note": "容易留下 2×2 的方块，也有会移动的小结构。"
+  },
+  {
+    "id": "life34",
+    "group": "life",
+    "name": "34 Life",
+    "birth": "34",
+    "survival": "34",
+    "note": "早期探索过的替代规则，小振荡子很多，大图案容易炸开。"
+  },
+  {
+    "id": "morley",
+    "group": "life",
+    "name": "Morley",
+    "birth": "368",
+    "survival": "245",
+    "note": "也叫 Move。对称图案很多，飞船往往又慢又长。"
+  },
+  {
+    "id": "replicator",
+    "group": "life",
+    "name": "Replicator",
+    "birth": "1357",
+    "survival": "1357",
+    "note": "下一刻只看活邻居个数是奇数还是偶数，图案会复制自己。"
+  },
+  {
+    "id": "walled",
+    "group": "life",
+    "name": "Walled Cities",
+    "birth": "45678",
+    "survival": "2345",
+    "note": "会形成外圈像墙、内部较稳的城市状斑块。"
+  },
+  {
+    "id": "fredkin",
+    "group": "life",
+    "name": "Fredkin",
+    "birth": "1357",
+    "survival": "02468",
+    "note": "3×3 连自己一起数，奇数个活细胞就点亮。任意有限图样在 32 代后会复制成 9 份。"
+  },
+  {
+    "id": "feux",
+    "group": "life",
+    "name": "Feux",
+    "birth": "1358",
+    "survival": "0247",
+    "note": "和 Fredkin 只差两档：总数 8 会点亮，总数 7 不会。图样容易炸开。"
+  },
+  {
+    "id": "vote45",
+    "group": "life",
+    "name": "Vote 4/5",
+    "birth": "4678",
+    "survival": "35678",
+    "note": "也叫 Anneal。把 Vote 的 4 和 5 对调，大块不容易冻住，细碎的噪声会收成平滑边界。"
+  },
+  {
+    "id": "vote",
+    "group": "life",
+    "name": "Vote",
+    "birth": "5678",
+    "survival": "45678",
+    "note": "也写作 56789。3×3 连自己至少 5 个活细胞就点亮。随机图会收成大块。"
+  },
+  {
+    "id": "gnarl",
+    "group": "life",
+    "name": "Gnarl",
+    "birth": "1",
+    "survival": "1",
+    "note": "只要有 1 个活邻居就会诞生或存活。从单点开始能看出分枝。"
+  },
+  {
+    "id": "inkspot",
+    "group": "life",
+    "name": "Flakes",
+    "birth": "3",
+    "survival": "012345678",
+    "note": "也叫 Life without Death、Inkspot。诞生后永远不死，会留下生长痕迹。"
+  },
+  {
+    "id": "coagulations",
+    "group": "life",
+    "name": "Coagulations",
+    "birth": "378",
+    "survival": "235678",
+    "note": "边扩张边凝成黏糊糊的团块。"
+  },
+  {
+    "id": "inverse",
+    "group": "life",
+    "name": "InverseLife",
+    "birth": "0123478",
+    "survival": "34678",
+    "note": "图案出现在活细胞铺成的背景里，死细胞这边长出滑翔机和振荡子。"
+  },
+  {
+    "id": "longlife",
+    "group": "life",
+    "name": "Long Life",
+    "birth": "345",
+    "survival": "5",
+    "note": "能做出周期特别长的图案。"
+  },
+  {
+    "id": "pseudo",
+    "group": "life",
+    "name": "Pseudo Life",
+    "birth": "357",
+    "survival": "238",
+    "note": "看起来很像生命游戏的混沌，但现成图案大多对不上。"
+  },
+  {
+    "id": "stains",
+    "group": "life",
+    "name": "Stains",
+    "birth": "3678",
+    "survival": "235678",
+    "note": "邻近的几条规则会一直胀，这一条却会停住。"
+  },
+  {
+    "id": "b25s4",
+    "group": "life",
+    "name": "B25/S4",
+    "birth": "25",
+    "survival": "4",
+    "note": "有很小的自我复制结构，配上滑翔机能走出一段伪随机来回。"
+  },
+  {
+    "id": "brian",
+    "group": "gen",
+    "name": "Brian's Brain",
+    "birth": "2",
+    "survival": "",
+    "states": 3,
+    "note": "活细胞下一刻一律衰老，再过一代死去。恰好 2 个活邻居会诞生。"
+  },
+  {
+    "id": "brain6",
+    "group": "gen",
+    "name": "Brain 6",
+    "birth": "246",
+    "survival": "6",
+    "states": 3,
+    "note": "Brian's Brain 的变体，能搭的图案更多。"
+  },
+  {
+    "id": "starwars",
+    "group": "gen",
+    "name": "Star Wars",
+    "birth": "2",
+    "survival": "345",
+    "states": 4,
+    "note": "活细胞在 3、4、5 个活邻居时可以留下，衰老要两代才结束。"
+  },
+  {
+    "id": "frogs",
+    "group": "gen",
+    "name": "Frogs",
+    "birth": "34",
+    "survival": "12",
+    "states": 3,
+    "note": "很常见的滑翔机看起来像青蛙。"
+  },
+  {
+    "id": "orthogo",
+    "group": "gen",
+    "name": "OrthoGo",
+    "birth": "2",
+    "survival": "3",
+    "states": 4,
+    "note": "会自己冒出沿直线对撞的滑翔机。"
+  },
+  {
+    "id": "lines",
+    "group": "gen",
+    "name": "Lines",
+    "birth": "458",
+    "survival": "012345",
+    "states": 3,
+    "note": "很快收成一片片正交的线条。"
+  },
+  {
+    "id": "caterpillars",
+    "group": "gen",
+    "name": "Caterpillars",
+    "birth": "378",
+    "survival": "124567",
+    "states": 4,
+    "note": "常见一种像毛虫一样爬行的图案。"
+  },
+  {
+    "id": "sedimental",
+    "group": "gen",
+    "name": "SediMental",
+    "birth": "25678",
+    "survival": "45678",
+    "states": 4,
+    "note": "随机铺开后容易结成带活跃海岸线的小岛。"
+  },
+  {
+    "id": "spirals",
+    "group": "gen",
+    "name": "Spirals",
+    "birth": "234",
+    "survival": "2",
+    "states": 5,
+    "note": "会卷出一直转下去的螺旋。"
+  },
+  {
+    "id": "transers",
+    "group": "gen",
+    "name": "Transers",
+    "birth": "26",
+    "survival": "345",
+    "states": 5,
+    "note": "野生图案很多，而且会互相变来变去。"
+  },
+  {
+    "id": "wanderers",
+    "group": "gen",
+    "name": "Wanderers",
+    "birth": "34678",
+    "survival": "345",
+    "states": 5,
+    "note": "和草原大火接近，但会留下会移动的结构。"
+  },
+  {
+    "id": "glissergy",
+    "group": "gen",
+    "name": "Glissergy",
+    "birth": "245678",
+    "survival": "035678",
+    "states": 5,
+    "note": "比 Glisserati 更闹，简单种子也能跑很久。"
+  },
+  {
+    "id": "banners",
+    "group": "gen",
+    "name": "Banners",
+    "birth": "3457",
+    "survival": "2367",
+    "states": 5,
+    "note": "常出现拖着飘动旗帜的飞船。"
+  },
+  {
+    "id": "chenille",
+    "group": "gen",
+    "name": "Chenille",
+    "birth": "24567",
+    "survival": "05678",
+    "states": 6,
+    "note": "会铺成蠕动的带状图案。"
+  },
+  {
+    "id": "frozenspirals",
+    "group": "gen",
+    "name": "Frozen Spirals",
+    "birth": "23",
+    "survival": "356",
+    "states": 6,
+    "note": "螺旋反应，尖角上会挂出冰柱一样的结构。"
+  },
+  {
+    "id": "incredible",
+    "group": "gen",
+    "name": "Incredible Machines",
+    "birth": "2",
+    "survival": "345",
+    "states": 6,
+    "note": "和 Star Wars 接近，更容易搭出大机器。"
+  },
+  {
+    "id": "livingedge",
+    "group": "gen",
+    "name": "Living on the Edge",
+    "birth": "3",
+    "survival": "345",
+    "states": 6,
+    "note": "很乱，图案会不会活下来往往看不出来。"
+  },
+  {
+    "id": "prairie",
+    "group": "gen",
+    "name": "Prairie on Fire",
+    "birth": "34",
+    "survival": "345",
+    "states": 6,
+    "note": "会把格子铺成一片火。"
+  },
+  {
+    "id": "rake",
+    "group": "gen",
+    "name": "Rake",
+    "birth": "2678",
+    "survival": "3467",
+    "states": 6,
+    "note": "大量耙式飞船，拖着小船和翅膀。"
+  },
+  {
+    "id": "snake",
+    "group": "gen",
+    "name": "Snake",
+    "birth": "25",
+    "survival": "03467",
+    "states": 6,
+    "note": "有方块振荡子和穿梭机，尾巴看起来像蛇。"
+  },
+  {
+    "id": "softfreeze",
+    "group": "gen",
+    "name": "SoftFreeze",
+    "birth": "38",
+    "survival": "13458",
+    "states": 6,
+    "note": "晶体会反复凝结、融化，和活跃区维持平衡。"
+  },
+  {
+    "id": "sticks",
+    "group": "gen",
+    "name": "Sticks",
+    "birth": "2",
+    "survival": "3456",
+    "states": 6,
+    "note": "长出各种棍子，飞船在缝里漂。"
+  },
+  {
+    "id": "transers2",
+    "group": "gen",
+    "name": "Transers II",
+    "birth": "26",
+    "survival": "0345",
+    "states": 6,
+    "note": "Transers 的近亲，活动更密。"
+  },
+  {
+    "id": "worms",
+    "group": "gen",
+    "name": "Worms",
+    "birth": "25",
+    "survival": "3467",
+    "states": 6,
+    "note": "会挤出成群的蠕虫状图案。"
+  },
+  {
+    "id": "glisserati",
+    "group": "gen",
+    "name": "Glisserati",
+    "birth": "245678",
+    "survival": "035678",
+    "states": 7,
+    "note": "简单种子常常放出很多滑翔机，铺成万花筒。"
+  },
+  {
+    "id": "belzhab",
+    "group": "gen",
+    "name": "BelZhab",
+    "birth": "23",
+    "survival": "23",
+    "states": 8,
+    "note": "又一种扎博京斯基式的螺旋反应。"
+  },
+  {
+    "id": "belzhabsed",
+    "group": "gen",
+    "name": "BelZhab Sediment",
+    "birth": "23",
+    "survival": "145678",
+    "states": 8,
+    "note": "螺旋外面会堆起越来越厚的沉积。"
+  },
+  {
+    "id": "circuit",
+    "group": "gen",
+    "name": "Circuit Genesis",
+    "birth": "1234",
+    "survival": "2345",
+    "states": 8,
+    "note": "线路会自己长出原设计之外的结构。"
+  },
+  {
+    "id": "cooties",
+    "group": "gen",
+    "name": "Cooties",
+    "birth": "2",
+    "survival": "23",
+    "states": 8,
+    "note": "细胞像虱子一样到处爬。"
+  },
+  {
+    "id": "flaming",
+    "group": "gen",
+    "name": "Flaming Starbows",
+    "birth": "23",
+    "survival": "347",
+    "states": 8,
+    "note": "扩张的菱形拖着火和螺旋。"
+  },
+  {
+    "id": "lava",
+    "group": "gen",
+    "name": "Lava",
+    "birth": "45678",
+    "survival": "12345",
+    "states": 8,
+    "note": "图案会被慢慢灌满的熔岩填上。"
+  },
+  {
+    "id": "meteorguns",
+    "group": "gen",
+    "name": "Meteor Guns",
+    "birth": "3",
+    "survival": "01245678",
+    "states": 8,
+    "note": "火球会吐出一串串流星一样的滑翔机。"
+  },
+  {
+    "id": "rainzha",
+    "group": "gen",
+    "name": "RainZha",
+    "birth": "23",
+    "survival": "2",
+    "states": 8,
+    "note": "最简单的扎博京斯基规则，随机图会自己卷出螺旋。"
+  },
+  {
+    "id": "swirl",
+    "group": "gen",
+    "name": "Swirl",
+    "birth": "34",
+    "survival": "23",
+    "states": 8,
+    "note": "随机图常留下孤立、一直转的小旋涡。"
+  },
+  {
+    "id": "burst",
+    "group": "gen",
+    "name": "Burst",
+    "birth": "3468",
+    "survival": "0235678",
+    "states": 9,
+    "note": "大片细胞会慢慢熄灭，或收成振荡子。"
+  },
+  {
+    "id": "burst2",
+    "group": "gen",
+    "name": "Burst II",
+    "birth": "3468",
+    "survival": "235678",
+    "states": 9,
+    "note": "去掉 Burst 里的单细胞静物，飞船和长周期振荡子更多。"
+  },
+  {
+    "id": "xtasy",
+    "group": "gen",
+    "name": "Xtasy",
+    "birth": "2356",
+    "survival": "1456",
+    "states": 16,
+    "note": "从简单种子展开的波，常常反复画成 X。"
+  },
+  {
+    "id": "ebbflow",
+    "group": "gen",
+    "name": "Ebb & Flow",
+    "birth": "36",
+    "survival": "012478",
+    "states": 18,
+    "note": "涨得慢，边界里面的活动会随对称性活下来或死掉。"
+  },
+  {
+    "id": "ebbflow2",
+    "group": "gen",
+    "name": "Ebb & Flow II",
+    "birth": "37",
+    "survival": "012468",
+    "states": 18,
+    "note": "Ebb & Flow 的近亲，多了简单滑翔机。"
+  },
+  {
+    "id": "fireworks",
+    "group": "gen",
+    "name": "Fireworks",
+    "birth": "13",
+    "survival": "2",
+    "states": 21,
+    "note": "很像烟花，几颗种子也能烧很久。"
+  },
+  {
+    "id": "bloomerang",
+    "group": "gen",
+    "name": "Bloomerang",
+    "birth": "34678",
+    "survival": "234",
+    "states": 24,
+    "note": "波会折返回来，变成比较圆、比较慢的花样。"
+  },
+  {
+    "id": "faders",
+    "group": "gen",
+    "name": "Faders",
+    "birth": "2",
+    "survival": "2",
+    "states": 25,
+    "note": "生命游戏和 Brian's Brain 的杂交：2 个邻居才点燃，点着后还要衰减很多代。"
+  },
+  {
+    "id": "bombers",
+    "group": "gen",
+    "name": "Bombers",
+    "birth": "24",
+    "survival": "345",
+    "states": 25,
+    "note": "Star Wars 的近亲，历史更长，飞船和喷烟机更多。"
+  },
+  {
+    "id": "nova",
+    "group": "gen",
+    "name": "Nova",
+    "birth": "2478",
+    "survival": "45678",
+    "states": 25,
+    "note": "慢慢长大，同时喷出等离子流。"
+  },
+  {
+    "id": "thrillgrill",
+    "group": "gen",
+    "name": "Thrill Grill",
+    "birth": "34",
+    "survival": "1234",
+    "states": 48,
+    "note": "格子背景上闪着会改排布的火花。"
+  }
+]

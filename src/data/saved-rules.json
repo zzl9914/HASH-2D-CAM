@@ -1,0 +1,38 @@
+[
+  {
+    "id": "snow-storm",
+    "name": "风吹雪",
+    "birthMask": 4,
+    "survivalMask": 0,
+    "states": 2,
+    "neighborhoodMask": 63,
+    "note": "已保存的规则 B2/S/C2/N123456。"
+  },
+  {
+    "id": "fire-rain",
+    "name": "火雨",
+    "birthMask": 4,
+    "survivalMask": 24,
+    "states": 2,
+    "neighborhoodMask": 95,
+    "note": "已保存的规则 B2/S34/C2/N123457。"
+  },
+  {
+    "id": "meteor-shower",
+    "name": "流星雨",
+    "birthMask": 4,
+    "survivalMask": 0,
+    "states": 2,
+    "neighborhoodMask": 207,
+    "note": "已保存的规则 B2/S/C2/N123478。"
+  },
+  {
+    "id": "ant-nest",
+    "name": "蚁穴",
+    "birthMask": 13,
+    "survivalMask": 5,
+    "states": 2,
+    "neighborhoodMask": 219,
+    "note": "已保存的规则 B023/S02/C2/N124578。"
+  }
+]

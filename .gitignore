@@ -1,0 +1,10 @@
+# 构建产物：由 src/tools/build-kernel.js 从 native/ca_kernel.cpp 生成
+src/js/ca_kernel.wasm
+
+# 本机 Agent 数据：会话日志含本机绝对路径，不入库
+.workbuddy/memory/
+
+# 操作系统
+Thumbs.db
+desktop.ini
+.DS_Store
